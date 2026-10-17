@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+}
+
+.container {
+    width: 50%;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+.result {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+/* Highlight spam keywords in red */
+.highlighted {
+    font-weight: bold;
+    color: red;
+}
+a button {
+    background: #2196F3;
+}
+a button:hover {
+    background: #0b7dda;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Spam Detection System</h2>
+
+<form method="post">
+<input type="text" name="text" placeholder="Enter email text">
+<br>
+<button type="submit">Check Spam</button>
+</form>
+
+<div class="result">
+<h3>{{ result }}</h3>
+<p>Confidence: {{ confidence }}%</p>
+</div>
+
+<!-- Display only highlighted spam words -->
+<p class="highlighted">{{ highlighted|safe }}</p>
+
+<!-- PDF and Logout buttons -->
+<a href="/report"><button>Generate PDF</button></a>
+<a href="/logout"><button>Logout</button></a>
+
+</div>
+
+</body>
+</html>
